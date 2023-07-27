@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       home: Focus(
         onKey: (node, event) {
           // Allow webview to handle cursor keys. Without this, the
-          // arrow keys disappear before they reach the webview
+          // arrow keys seem to get "eaten" by Flutter and therefore
+          // never reach the webview.
           // (https://github.com/flutter/flutter/issues/102505).
           if (!kIsWeb) {
             if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft) ||
