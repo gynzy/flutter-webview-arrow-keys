@@ -20,10 +20,12 @@ class MyApp extends StatelessWidget {
           // never reach the webview.
           // (https://github.com/flutter/flutter/issues/102505).
           if (!kIsWeb) {
-            if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft) ||
-                event.isKeyPressed(LogicalKeyboardKey.arrowRight) ||
-                event.isKeyPressed(LogicalKeyboardKey.arrowUp) ||
-                event.isKeyPressed(LogicalKeyboardKey.arrowDown)) {
+            if ({
+              LogicalKeyboardKey.arrowLeft,
+              LogicalKeyboardKey.arrowRight,
+              LogicalKeyboardKey.arrowUp,
+              LogicalKeyboardKey.arrowDown
+            }.contains(event.logicalKey)) {
               return KeyEventResult.skipRemainingHandlers;
             }
           }
